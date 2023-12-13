@@ -4,6 +4,7 @@ import firebase from '../../firebase';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
+
 const Join = () => {
     const [youName, setYouName] = useState("");
     const [youEmail, setYouEmail] = useState("");
@@ -14,7 +15,7 @@ const Join = () => {
     let navigate = useNavigate();
 
     const JoinFunc = async (e) => {
-        setFlag(true);
+        setFlag(true)
         e.preventDefault();
 
         if (!(youName && youEmail && youPass && youPassC)) {
@@ -29,21 +30,23 @@ const Join = () => {
 
         await createdUser.user.updateProfile({
             displayName: youName,
-        });
+        })
 
-        console.log(createdUser.user)
+        console.log(createdUser.user);
 
-        // 개인정보 --> mongodb
+        //개인정보 --> mongodb
         let body = {
             email: createdUser.user.multiFactor.user.email,
             displayName: createdUser.user.multiFactor.user.displayName,
             uid: createdUser.user.multiFactor.user.uid,
+
         }
-        axios.post("/api/user/join", body)
+        axios
+            .post("/api/user/join", body)
             .then((response) => {
                 setFlag(false)
                 if (response.data.success) {
-                    //회원가입 성공
+                    alert("회원가입을 성공하였습니다.")
                     navigate("/login");
                 } else {
                     return alert("회원가입이 실패하였습니다.");
@@ -84,6 +87,7 @@ const Join = () => {
                             className="input__style"
                             autoComplete='off'
                             required
+                            minLength={8}
                             value={youEmail}
                             onChange={(e) => setYouEmail(e.currentTarget.value)}
                         />

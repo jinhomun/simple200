@@ -11,24 +11,21 @@ const Login = () => {
 
     const LoginFunc = async (e) => {
         e.preventDefault();
+
         if (!(email && password)) {
-            return alert("모든 값을 채워주세요!");
+            return alert("모든 값을 채워 주세요!")
         }
         try {
-            await firebase.auth().signInWithEmail.AndPassword(email, password);
-            alert("로그인 성공하였습니다.")
+            await firebase.auth().signInWithEmailAndPassword(email, password);
+            alert("로그인을 했습니다.")
             navigate("/")
         } catch (err) {
-            console.log(err.code)
-            if (err.code === "auth/invalid-email") {
-                setErrorMsg("존재하지 않는 이메일입니다.")
-            } else if (err.code === "auth/invalid-credential") {
-                setErrorMsg("비밀번호가 일치하지 않습니다.")
-            } else {
-                setErrorMsg("로그인을 실패하였습니다.")
-            }
+            console.log(err);
+            setErrorMsg("이메일과 비밀번호를 다시 한번 확인해주세요!");
         }
     }
+
+
 
     return (
         <div className='login__wrap'>

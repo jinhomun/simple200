@@ -2,12 +2,12 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCgWVl7lk4_ImolhBj5k3D7GulUm-bj6iI",
-    authDomain: "kickoff-90.firebaseapp.com",
-    projectId: "kickoff-90",
-    storageBucket: "kickoff-90.appspot.com",
-    messagingSenderId: "453819675284",
-    appId: "1:453819675284:web:8fd10e4206cddb605aba81"
+    apiKey: "AIzaSyBgCGuLuS7dKdLi6XevKDvx5DOX8PUGQxM",
+    authDomain: "kick-off-120.firebaseapp.com",
+    projectId: "kick-off-120",
+    storageBucket: "kick-off-120.appspot.com",
+    messagingSenderId: "42080096481",
+    appId: "1:42080096481:web:36fe7a15e440b5aad3a7a0"
 };
 
 // Initialize Firebase
